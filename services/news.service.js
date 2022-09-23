@@ -1,26 +1,15 @@
 
 const newsModel = require('../models/news.model');
-let jwt = require('jsonwebtoken');
 
 
 module.exports.addNews = async (req, res) => {
-    const { title, desc, createdBy , token } = req.body;
-
-    jwt.verify(token, 'amr', async function (err, decoded) {
-        if (err) {
-            res.json({ message: 'error in token or token not provided' , err})
-        } else {
-
-            console.log(decoded.foo) // bar
-            await newsModel.insertMany({ title, desc, createdBy });
-            res.json({ message: 'success' });
-
-        }
-    });
+    const { title, desc } = req.body;
+    await newsModel.insertMany({ title, desc, createdBy:req.id});
+    res.json({ message: 'success' });
 };
 
 module.exports.allNews = async (req, res) => {
-    let news = await newsModel.find({}).populate('createdBy', 'name email -_id')
+    let news = await newsModel.find({})
     res.json({ message: "success", news });
 };
 

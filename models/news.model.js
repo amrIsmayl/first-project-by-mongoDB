@@ -12,4 +12,4 @@ const schema = mongoose.Schema({
     timesamps : true 
 });
 
-module.exports = mongoose.model('news' , schema )
+module.exports = mongoose.model('news' , schema );

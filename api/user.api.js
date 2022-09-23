@@ -1,3 +1,4 @@
+const { auth } = require('../middleware/authentiction/auth');
 const { signup, signin } = require('../services/user.service');
 
 
