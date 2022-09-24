@@ -7,7 +7,9 @@ const port = 3000
 app.use(express.json());
 app.use('/users', require('./api/user.api'));
 app.use('/news', require('./api/news.api'));
-
+app.use('*', (req,res) => {
+    res.json({message : "path incorrect"})
+})
 
 
 
