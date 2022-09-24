@@ -1,15 +1,15 @@
 
-const  mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const schema = mongoose.Schema({
-    title : String,
-    desc : String,
-    createdBy :{
+    title: String,
+    desc: String,
+    createdBy: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'user'
-    } ,
-},{
-    timesamps : true 
+    },
+}, {
+    timesamps: true
 });
 
-module.exports = mongoose.model('news' , schema );
+module.exports = mongoose.model('news', schema);

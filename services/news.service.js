@@ -4,7 +4,7 @@ const newsModel = require('../models/news.model');
 
 module.exports.addNews = async (req, res) => {
     const { title, desc } = req.body;
-    await newsModel.insertMany({ title, desc, createdBy:req.id});
+    await newsModel.insertMany({ title, desc, createdBy: req.id });
     res.json({ message: 'success' });
 };
 

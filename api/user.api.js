@@ -3,10 +3,10 @@ const { uservalidation, paramsSchema } = require('../middleware/validation/user.
 const { signup, signin } = require('../services/user.service');
 
 
-const app =require('express').Router();
+const app = require('express').Router();
 
 
-app.post('/signup/:id', uservalidation,signup);
+app.post('/signup/:id', uservalidation, signup);
 app.post('/signin', signin);
 
 module.exports = app
